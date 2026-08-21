@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator potrošnje goriva</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 22px 20px;
+        }
+
+        .header-inner {
+            max-width: 700px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .back {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .calculator {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .intro {
+            color: #6b7280;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        label {
+            display: block;
+            margin-top: 22px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            margin-top: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 28px;
+            border: none;
+            border-radius: 8px;
+            background: #111827;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #374151;
+        }
+
+        #rezultat {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: #f0f7ff;
+            border-radius: 10px;
+            line-height: 1.9;
+        }
+
+        footer {
+            text-align: center;
+            color: #6b7280;
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="header-inner">
+
+        <a class="logo" href="index.html">
+            🧮 Kalkulatori
+        </a>
+
+        <a class="back" href="index.html">
+            ← Početna
+        </a>
+
+    </div>
+
+</header>
+
+
+<div class="container">
+
+    <div class="calculator">
+
+        <h1>🚗 Kalkulator potrošnje goriva</h1>
+
+        <p class="intro">
+            Izračunajte potrošnju automobila, trošak goriva
+            i cijenu po kilometru.
+        </p>
+
+
+        <label for="kilometri">
+            Prijeđeni kilometri
+        </label>
+
+        <input
+            type="number"
+            id="kilometri"
+            placeholder="npr. 350"
+        >
+
+
+        <label for="litre">
+            Potrošeno goriva (litara)
+        </label>
+
+        <input
+            type="number"
+            id="litre"
+            placeholder="npr. 25"
+        >
+
+
+        <label for="cijena">
+            Cijena goriva po litri (€)
+        </label>
+
+        <input
+            type="number"
+            id="cijena"
+            step="0.01"
+            placeholder="npr. 1.60"
+        >
+
+
+        <button onclick="izracunaj()">
+            Izračunaj
+        </button>
+
+
+        <div id="rezultat"></div>
+
+    </div>
+
+</div>
+
+
+<footer>
+    © 2026 Kalkulatori
+</footer>
+
+
+<script>
+
+function izracunaj() {
+
+    const kilometri =
+        parseFloat(document.getElementById("kilometri").value);
+
+    const litre =
+        parseFloat(document.getElementById("litre").value);
+
+    const cijena =
+        parseFloat(document.getElementById("cijena").value);
+
+
+    if (
+        !kilometri ||
+        !litre ||
+        !cijena ||
+        kilometri <= 0 ||
+        litre <= 0 ||
+        cijena <= 0
+    ) {
+
+        alert("Molimo unesite ispravne podatke.");
+
+        return;
+    }
+
+
+    const potrosnja =
+        (litre / kilometri) * 100;
+
+    const ukupnaCijena =
+        litre * cijena;
+
+    const cijenaPoKm =
+        ukupnaCijena / kilometri;
+
+
+    const rezultat =
+        document.getElementById("rezultat");
+
+
+    rezultat.style.display = "block";
+
+
+    rezultat.innerHTML = `
+
+        <strong>Rezultat:</strong><br><br>
+
+        ⛽ Potrošnja:
+        <strong>${potrosnja.toFixed(2)} L/100 km</strong>
+        <br>
+
+        💶 Trošak goriva:
+        <strong>${ukupnaCijena.toFixed(2)} €</strong>
+        <br>
+
+        📍 Cijena po kilometru:
+        <strong>${cijenaPoKm.toFixed(3)} €</strong>
+
+    `;
+}
+
+</script>
+
+</body>
+</html>
