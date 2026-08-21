@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kalkulator popusta</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f7;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin-top: 7px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 8px;
+            background: #222;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        #rezultat {
+            margin-top: 25px;
+            padding: 18px;
+            background: #f0f7ff;
+            border-radius: 10px;
+            display: none;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🏷️ Kalkulator popusta</h1>
+
+    <p>
+        Izračunajte koliko ćete platiti proizvod nakon popusta
+        i koliko ste novca uštedjeli.
+    </p>
+
+    <label for="cijena">Početna cijena (€)</label>
+    <input type="number" id="cijena" placeholder="npr. 100">
+
+    <label for="popust">Popust (%)</label>
+    <input type="number" id="popust" placeholder="npr. 20">
+
+    <button onclick="izracunajPopust()">Izračunaj</button>
+
+    <div id="rezultat"></div>
+
+</div>
+
+<script>
+function izracunajPopust() {
+
+    const cijena = parseFloat(document.getElementById("cijena").value);
+    const popust = parseFloat(document.getElementById("popust").value);
+
+    if (!cijena || cijena <= 0 || popust < 0 || popust > 100) {
+        alert("Molimo unesite ispravne podatke.");
+        return;
+    }
+
+    const usteda = cijena * (popust / 100);
+    const konacnaCijena = cijena - usteda;
+
+    const rezultat = document.getElementById("rezultat");
+
+    rezultat.style.display = "block";
+
+    rezultat.innerHTML = `
+        <strong>Rezultat:</strong><br><br>
+        💶 Početna cijena: <strong>${cijena.toFixed(2)} €</strong><br>
+        🏷️ Popust: <strong>${popust.toFixed(2)}%</strong><br>
+        💰 Ušteda: <strong>${usteda.toFixed(2)} €</strong><br>
+        ✅ Konačna cijena: <strong>${konacnaCijena.toFixed(2)} €</strong>
+    `;
+}
+</script>
+
+</body>
+</html>
