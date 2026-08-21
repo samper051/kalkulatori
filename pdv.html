@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Besplatni kalkulator PDV-a. Izračunajte PDV, cijenu s PDV-om i cijenu bez PDV-a brzo i jednostavno.">
+
+    <meta name="robots" content="index, follow">
+
+    <title>Kalkulator PDV-a – Izračun PDV-a i cijene s PDV-om</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 22px 20px;
+        }
+
+        .header-inner {
+            max-width: 600px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .back {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .calculator {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .intro {
+            color: #6b7280;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        label {
+            display: block;
+            margin-top: 22px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            margin-top: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 28px;
+            border: none;
+            border-radius: 8px;
+            background: #111827;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #374151;
+        }
+
+        #rezultat {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: #f0f7ff;
+            border-radius: 10px;
+            line-height: 1.9;
+        }
+
+        .seo-text {
+            max-width: 600px;
+            margin: 35px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            line-height: 1.7;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .seo-text h2 {
+            margin-top: 0;
+            color: #222;
+        }
+
+        .seo-text p {
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            color: #6b7280;
+            padding: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .calculator {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+
+        <a class="logo" href="index.html">
+            🧮 Kalkulatori
+        </a>
+
+        <a class="back" href="index.html">
+            ← Početna
+        </a>
+
+    </div>
+</header>
+
+
+<div class="container">
+
+    <div class="calculator">
+
+        <h1>🧾 Kalkulator PDV-a</h1>
+
+        <p class="intro">
+            Izračunajte PDV, cijenu s PDV-om ili cijenu bez PDV-a.
+        </p>
+
+        <label for="cijena">Cijena (€)</label>
+        <input type="number" id="cijena" placeholder="npr. 100" step="0.01">
+
+        <label for="pdv">Stopa PDV-a (%)</label>
+        <input type="number" id="pdv" value="25" step="0.1">
+
+        <label for="nacin">Što želite izračunati?</label>
+        <select id="nacin">
+            <option value="bez">Cijena bez PDV-a → izračunaj PDV i cijenu s PDV-om</option>
+            <option value="s">Cijena s PDV-om → izračunaj cijenu bez PDV-a</option>
+        </select>
+
+        <button onclick="izracunajPDV()">
+            Izračunaj
+        </button>
+
+        <div id="rezultat"></div>
+
+    </div>
+
+</div>
+
+
+<div class="seo-text">
+
+    <h2>Kako izračunati PDV?</h2>
+
+    <p>
+        PDV je porez na dodanu vrijednost koji je uključen u cijenu
+        brojnih proizvoda i usluga. Kalkulator omogućuje brz izračun
+        PDV-a i konačne cijene.
+    </p>
+
+    <h2>Kako izračunati cijenu s PDV-om?</h2>
+
+    <p>
+        Ako znate cijenu bez PDV-a, iznos PDV-a možete izračunati
+        množenjem cijene sa stopom PDV-a. Dobiveni iznos zatim se
+        dodaje početnoj cijeni.
+    </p>
+
+    <p>
+        <strong>Primjer:</strong> Ako je cijena 100 €,
+        a PDV 25%, PDV iznosi 25 €, pa je cijena s PDV-om 125 €.
+    </p>
+
+    <h2>Kako izračunati cijenu bez PDV-a?</h2>
+
+    <p>
+        Ako imate konačnu cijenu koja već uključuje PDV,
+        kalkulator može izračunati osnovnu cijenu bez PDV-a
+        i sam iznos PDV-a.
+    </p>
+
+</div>
+
+
+<footer>
+    © 2026 Kalkulatori
+</footer>
+
+
+<script>
+function izracunajPDV() {
+
+    const cijena = parseFloat(document.getElementById("cijena").value);
+    const pdv = parseFloat(document.getElementById("pdv").value);
+    const nacin = document.getElementById("nacin").value;
+
+    if (!cijena || cijena <= 0 || pdv < 0 || pdv > 100) {
+        alert("Molimo unesite ispravne podatke.");
+        return;
+    }
+
+    let osnovica;
+    let iznosPDV;
+    let ukupno;
+
+    if (nacin === "bez") {
+
+        osnovica = cijena;
+        iznosPDV = osnovica * (pdv / 100);
+        ukupno = osnovica + iznosPDV;
+
+    } else {
+
+        ukupno = cijena;
+        osnovica = ukupno / (1 + pdv / 100);
+        iznosPDV = ukupno - osnovica;
+
+    }
+
+    const rezultat = document.getElementById("rezultat");
+
+    rezultat.style.display = "block";
+
+    rezultat.innerHTML = `
+        <strong>Rezultat:</strong><br><br>
+        💶 Cijena bez PDV-a: <strong>${osnovica.toFixed(2)} €</strong><br>
+        🧾 PDV (${pdv.toFixed(2)}%): <strong>${iznosPDV.toFixed(2)} €</strong><br>
+        💰 Cijena s PDV-om: <strong>${ukupno.toFixed(2)} €</strong>
+    `;
+}
+</script>
+
+</body>
+</html>
