@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Besplatni kalkulator postotaka. Izračunajte postotak od broja, koliko jedan broj iznosi posto od drugog i razliku u postocima.">
+
+    <meta name="robots" content="index, follow">
+
+    <title>Kalkulator postotaka – Brzi izračun postotka</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 22px 20px;
+        }
+
+        .header-inner {
+            max-width: 600px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .back {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .calculator {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .intro {
+            color: #6b7280;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        label {
+            display: block;
+            margin-top: 22px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            margin-top: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 28px;
+            border: none;
+            border-radius: 8px;
+            background: #111827;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #374151;
+        }
+
+        #rezultat {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: #f0f7ff;
+            border-radius: 10px;
+            line-height: 1.9;
+        }
+
+        .seo-text {
+            max-width: 600px;
+            margin: 35px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            line-height: 1.7;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .seo-text h2 {
+            margin-top: 0;
+            color: #222;
+        }
+
+        .seo-text p {
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            color: #6b7280;
+            padding: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .calculator {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+
+        <a class="logo" href="index.html">
+            🧮 Kalkulatori
+        </a>
+
+        <a class="back" href="index.html">
+            ← Početna
+        </a>
+
+    </div>
+</header>
+
+
+<div class="container">
+
+    <div class="calculator">
+
+        <h1>📊 Kalkulator postotaka</h1>
+
+        <p class="intro">
+            Brzo izračunajte postotak od broja ili saznajte
+            koliko jedan broj iznosi posto od drugog.
+        </p>
+
+        <label for="prviBroj">Prvi broj</label>
+        <input type="number" id="prviBroj" placeholder="npr. 250" step="0.01">
+
+        <label for="drugiBroj">Drugi broj</label>
+        <input type="number" id="drugiBroj" placeholder="npr. 15" step="0.01">
+
+        <label for="nacin">Što želite izračunati?</label>
+
+        <select id="nacin">
+            <option value="postotak">Koliko je X% od prvog broja?</option>
+            <option value="koliko">Koliko je drugi broj posto od prvog?</option>
+        </select>
+
+        <button onclick="izracunajPostotak()">
+            Izračunaj
+        </button>
+
+        <div id="rezultat"></div>
+
+    </div>
+
+</div>
+
+
+<div class="seo-text">
+
+    <h2>Kako izračunati postotak?</h2>
+
+    <p>
+        Postotak se koristi za usporedbu dijelova i cijelih vrijednosti.
+        Kalkulator omogućuje brz izračun bez ručnog računanja.
+    </p>
+
+    <h2>Koliko je postotak od broja?</h2>
+
+    <p>
+        Za izračun postotka određene vrijednosti pomnožite broj
+        s postotkom podijeljenim sa 100.
+    </p>
+
+    <p>
+        <strong>Primjer:</strong> 20% od 200 iznosi 40.
+    </p>
+
+    <h2>Koliko jedan broj iznosi posto od drugog?</h2>
+
+    <p>
+        Ako želite saznati koliko je jedan broj posto od drugog,
+        podijelite prvi broj s drugim i rezultat pomnožite sa 100.
+    </p>
+
+</div>
+
+
+<footer>
+    © 2026 Kalkulatori
+</footer>
+
+
+<script>
+function izracunajPostotak() {
+
+    const prvi = parseFloat(document.getElementById("prviBroj").value);
+    const drugi = parseFloat(document.getElementById("drugiBroj").value);
+    const nacin = document.getElementById("nacin").value;
+
+    if (isNaN(prvi) || isNaN(drugi) || prvi <= 0 || drugi < 0) {
+        alert("Molimo unesite ispravne podatke.");
+        return;
+    }
+
+    let rezultatTekst = "";
+
+    if (nacin === "postotak") {
+
+        const rezultat = prvi * (drugi / 100);
+
+        rezultatTekst = `
+            <strong>Rezultat:</strong><br><br>
+            📊 ${drugi.toFixed(2)}% od ${prvi.toFixed(2)} iznosi
+            <strong>${rezultat.toFixed(2)}</strong>.
+        `;
+
+    } else {
+
+        if (prvi === 0) {
+            alert("Prvi broj ne smije biti 0.");
+            return;
+        }
+
+        const rezultat = (drugi / prvi) * 100;
+
+        rezultatTekst = `
+            <strong>Rezultat:</strong><br><br>
+            📊 ${drugi.toFixed(2)} je
+            <strong>${rezultat.toFixed(2)}%</strong>
+            od ${prvi.toFixed(2)}.
+        `;
+    }
+
+    const rezultat = document.getElementById("rezultat");
+
+    rezultat.style.display = "block";
+    rezultat.innerHTML = rezultatTekst;
+}
+</script>
+
+</body>
+</html>
