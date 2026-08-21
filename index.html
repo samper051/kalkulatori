@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator potrošnje goriva</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f7;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin-top: 7px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 8px;
+            background: #222;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        #rezultat {
+            margin-top: 25px;
+            padding: 18px;
+            background: #f0f7ff;
+            border-radius: 10px;
+            display: none;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🚗 Kalkulator potrošnje goriva</h1>
+
+    <p>
+        Izračunaj koliko tvoj automobil troši goriva,
+        koliko te put košta i koliko plaćaš po kilometru.
+    </p>
+
+    <label for="kilometri">Prijeđeni kilometri</label>
+    <input type="number" id="kilometri" placeholder="npr. 350">
+
+    <label for="litre">Potrošeno goriva (litara)</label>
+    <input type="number" id="litre" placeholder="npr. 25">
+
+    <label for="cijena">Cijena goriva po litri (€)</label>
+    <input type="number" id="cijena" step="0.01" placeholder="npr. 1.60">
+
+    <button onclick="izracunaj()">Izračunaj</button>
+
+    <div id="rezultat"></div>
+
+</div>
+
+<script>
+function izracunaj() {
+
+    const kilometri = parseFloat(document.getElementById("kilometri").value);
+    const litre = parseFloat(document.getElementById("litre").value);
+    const cijena = parseFloat(document.getElementById("cijena").value);
+
+    if (!kilometri || !litre || !cijena || kilometri <= 0 || litre <= 0 || cijena <= 0) {
+        alert("Molimo unesite ispravne podatke.");
+        return;
+    }
+
+    const potrosnja = (litre / kilometri) * 100;
+    const ukupnaCijena = litre * cijena;
+    const cijenaPoKm = ukupnaCijena / kilometri;
+
+    const rezultat = document.getElementById("rezultat");
+
+    rezultat.style.display = "block";
+
+    rezultat.innerHTML = `
+        <strong>Rezultat:</strong><br><br>
+        ⛽ Potrošnja: <strong>${potrosnja.toFixed(2)} L/100 km</strong><br>
+        💶 Trošak goriva: <strong>${ukupnaCijena.toFixed(2)} €</strong><br>
+        📍 Cijena po kilometru: <strong>${cijenaPoKm.toFixed(3)} €</strong>
+    `;
+}
+</script>
+
+</body>
+</html>
