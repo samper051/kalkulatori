@@ -1,5 +1,7 @@
+```html
 <!DOCTYPE html>
 <html lang="hr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +31,7 @@
         }
 
         .header-inner {
-            max-width: 600px;
+            max-width: 700px;
             margin: auto;
             display: flex;
             justify-content: space-between;
@@ -132,6 +134,37 @@
             color: #555;
         }
 
+        .ostali-kalkulatori {
+            max-width: 600px;
+            margin: 35px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .ostali-kalkulatori h2 {
+            margin-top: 0;
+            color: #222;
+        }
+
+        .ostali-kalkulatori a {
+            display: block;
+            padding: 12px 0;
+            color: #111827;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .ostali-kalkulatori a:last-child {
+            border-bottom: none;
+        }
+
+        .ostali-kalkulatori a:hover {
+            color: #4b5563;
+        }
+
         footer {
             text-align: center;
             color: #6b7280;
@@ -139,6 +172,7 @@
         }
 
         @media (max-width: 600px) {
+
             .header-inner {
                 flex-direction: column;
                 gap: 12px;
@@ -154,6 +188,7 @@
 <body>
 
 <header>
+
     <div class="header-inner">
 
         <a class="logo" href="index.html">
@@ -165,6 +200,7 @@
         </a>
 
     </div>
+
 </header>
 
 
@@ -179,22 +215,51 @@
             koliko jedan broj iznosi posto od drugog.
         </p>
 
-        <label for="prviBroj">Prvi broj</label>
-        <input type="number" id="prviBroj" placeholder="npr. 250" step="0.01">
+        <label for="prviBroj">
+            Prvi broj
+        </label>
 
-        <label for="drugiBroj">Drugi broj</label>
-        <input type="number" id="drugiBroj" placeholder="npr. 15" step="0.01">
+        <input
+            type="number"
+            id="prviBroj"
+            placeholder="npr. 250"
+            step="0.01"
+        >
 
-        <label for="nacin">Što želite izračunati?</label>
+
+        <label for="drugiBroj">
+            Drugi broj
+        </label>
+
+        <input
+            type="number"
+            id="drugiBroj"
+            placeholder="npr. 15"
+            step="0.01"
+        >
+
+
+        <label for="nacin">
+            Što želite izračunati?
+        </label>
 
         <select id="nacin">
-            <option value="postotak">Koliko je X% od prvog broja?</option>
-            <option value="koliko">Koliko je drugi broj posto od prvog?</option>
+
+            <option value="postotak">
+                Koliko je X% od prvog broja?
+            </option>
+
+            <option value="koliko">
+                Koliko je drugi broj posto od prvog?
+            </option>
+
         </select>
+
 
         <button onclick="izracunajPostotak()">
             Izračunaj
         </button>
+
 
         <div id="rezultat"></div>
 
@@ -227,8 +292,43 @@
 
     <p>
         Ako želite saznati koliko je jedan broj posto od drugog,
-        podijelite prvi broj s drugim i rezultat pomnožite sa 100.
+        podijelite drugi broj s prvim i rezultat pomnožite sa 100.
     </p>
+
+</div>
+
+
+<div class="ostali-kalkulatori">
+
+    <h2>Ostali kalkulatori</h2>
+
+    <a href="index.html">
+        🧮 Svi kalkulatori
+    </a>
+
+    <a href="gorivo.html">
+        🚗 Kalkulator potrošnje goriva
+    </a>
+
+    <a href="placa.html">
+        💰 Kalkulator plaće
+    </a>
+
+    <a href="popust.html">
+        🏷️ Kalkulator popusta
+    </a>
+
+    <a href="pdv.html">
+        🧾 Kalkulator PDV-a
+    </a>
+
+    <a href="postotak.html">
+        📊 Kalkulator postotka
+    </a>
+
+    <a href="vise-popusta.html">
+        🏷️ Kalkulator više popusta
+    </a>
 
 </div>
 
@@ -239,52 +339,80 @@
 
 
 <script>
+
 function izracunajPostotak() {
 
-    const prvi = parseFloat(document.getElementById("prviBroj").value);
-    const drugi = parseFloat(document.getElementById("drugiBroj").value);
-    const nacin = document.getElementById("nacin").value;
+    const prvi =
+        parseFloat(document.getElementById("prviBroj").value);
 
-    if (isNaN(prvi) || isNaN(drugi) || prvi <= 0 || drugi < 0) {
+    const drugi =
+        parseFloat(document.getElementById("drugiBroj").value);
+
+    const nacin =
+        document.getElementById("nacin").value;
+
+
+    if (
+        isNaN(prvi) ||
+        isNaN(drugi) ||
+        prvi <= 0 ||
+        drugi < 0
+    ) {
+
         alert("Molimo unesite ispravne podatke.");
+
         return;
     }
 
+
     let rezultatTekst = "";
+
 
     if (nacin === "postotak") {
 
-        const rezultat = prvi * (drugi / 100);
+        const rezultat =
+            prvi * (drugi / 100);
+
 
         rezultatTekst = `
+
             <strong>Rezultat:</strong><br><br>
-            📊 ${drugi.toFixed(2)}% od ${prvi.toFixed(2)} iznosi
+
+            📊 ${drugi.toFixed(2)}% od ${prvi.toFixed(2)}
+            iznosi
             <strong>${rezultat.toFixed(2)}</strong>.
+
         `;
 
     } else {
 
-        if (prvi === 0) {
-            alert("Prvi broj ne smije biti 0.");
-            return;
-        }
+        const rezultat =
+            (drugi / prvi) * 100;
 
-        const rezultat = (drugi / prvi) * 100;
 
         rezultatTekst = `
+
             <strong>Rezultat:</strong><br><br>
+
             📊 ${drugi.toFixed(2)} je
             <strong>${rezultat.toFixed(2)}%</strong>
             od ${prvi.toFixed(2)}.
+
         `;
     }
 
-    const rezultat = document.getElementById("rezultat");
+
+    const rezultat =
+        document.getElementById("rezultat");
+
 
     rezultat.style.display = "block";
+
     rezultat.innerHTML = rezultatTekst;
 }
+
 </script>
 
 </body>
 </html>
+```
