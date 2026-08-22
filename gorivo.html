@@ -12,7 +12,8 @@
 
     <title>Kalkulator potrošnje goriva – L/100 km i trošak goriva</title>
 
- <style>
+    <style>
+
         * {
             box-sizing: border-box;
         }
@@ -114,29 +115,68 @@
             line-height: 1.9;
         }
 
+        .seo-text {
+            max-width: 600px;
+            margin: 35px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            line-height: 1.7;
+        }
+
+        .seo-text h2 {
+            margin-top: 0;
+            color: #111827;
+        }
+
+        .seo-text p {
+            color: #4b5563;
+        }
+
+        .ostali-kalkulatori {
+            max-width: 600px;
+            margin: 35px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .ostali-kalkulatori h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .ostali-kalkulatori a {
+            display: block;
+            margin: 12px 0;
+            color: #111827;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .ostali-kalkulatori a:hover {
+            text-decoration: underline;
+        }
+
         footer {
             text-align: center;
             color: #6b7280;
             padding: 30px;
         }
-  .seo-text {
-    max-width: 600px;
-    margin: 35px auto;
-    padding: 30px;
-    background: white;
-    border-radius: 16px;
-    line-height: 1.7;
-}
 
-.seo-text h2 {
-    margin-top: 0;
-    color: #111827;
-}
+        @media (max-width: 600px) {
 
-.seo-text p {
-    color: #4b5563;
-}
- </style>
+            .header-inner {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -214,6 +254,8 @@
     </div>
 
 </div>
+
+
 <div class="seo-text">
 
     <h2>Kako izračunati potrošnju goriva?</h2>
@@ -246,8 +288,30 @@
 
 </div>
 
+
+<div class="ostali-kalkulatori">
+
+    <h2>Ostali kalkulatori</h2>
+
+    <a href="index.html">🏠 Svi kalkulatori</a>
+
+    <a href="placa.html">💰 Kalkulator plaće</a>
+
+    <a href="popust.html">🏷️ Kalkulator popusta</a>
+
+    <a href="pdv.html">🧾 Kalkulator PDV-a</a>
+
+    <a href="postotak.html">📊 Kalkulator postotaka</a>
+
+    <a href="vise-popusta.html">🛒 Kalkulator više popusta</a>
+
+</div>
+
+
 <footer>
+
     © 2026 Kalkulatori
+
 </footer>
 
 
@@ -313,9 +377,11 @@ function izracunaj() {
         <strong>${cijenaPoKm.toFixed(3)} €</strong>
 
     `;
+
 }
 
 </script>
 
 </body>
+
 </html>
