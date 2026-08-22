@@ -1,11 +1,12 @@
+```html
 <!DOCTYPE html>
 <html lang="hr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description" content="Besplatni kalkulator PDV-a. Izračunajte PDV, cijenu s PDV-om i cijenu bez PDV-a brzo i jednostavno.">
-
     <meta name="robots" content="index, follow">
 
     <title>Kalkulator PDV-a – Izračun PDV-a i cijene s PDV-om</title>
@@ -29,7 +30,7 @@
         }
 
         .header-inner {
-            max-width: 600px;
+            max-width: 700px;
             margin: auto;
             display: flex;
             justify-content: space-between;
@@ -132,6 +133,37 @@
             color: #555;
         }
 
+        .ostali-kalkulatori {
+            max-width: 600px;
+            margin: 35px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .ostali-kalkulatori h2 {
+            margin-top: 0;
+            color: #222;
+        }
+
+        .ostali-kalkulatori a {
+            display: block;
+            padding: 12px 0;
+            color: #111827;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .ostali-kalkulatori a:last-child {
+            border-bottom: none;
+        }
+
+        .ostali-kalkulatori a:hover {
+            color: #4b5563;
+        }
+
         footer {
             text-align: center;
             color: #6b7280;
@@ -179,15 +211,33 @@
         </p>
 
         <label for="cijena">Cijena (€)</label>
-        <input type="number" id="cijena" placeholder="npr. 100" step="0.01">
+
+        <input
+            type="number"
+            id="cijena"
+            placeholder="npr. 100"
+            step="0.01"
+        >
 
         <label for="pdv">Stopa PDV-a (%)</label>
-        <input type="number" id="pdv" value="25" step="0.1">
+
+        <input
+            type="number"
+            id="pdv"
+            value="25"
+            step="0.1"
+        >
 
         <label for="nacin">Što želite izračunati?</label>
+
         <select id="nacin">
-            <option value="bez">Cijena bez PDV-a → izračunaj PDV i cijenu s PDV-om</option>
-            <option value="s">Cijena s PDV-om → izračunaj cijenu bez PDV-a</option>
+            <option value="bez">
+                Cijena bez PDV-a → izračunaj PDV i cijenu s PDV-om
+            </option>
+
+            <option value="s">
+                Cijena s PDV-om → izračunaj cijenu bez PDV-a
+            </option>
         </select>
 
         <button onclick="izracunajPDV()">
@@ -235,53 +285,127 @@
 </div>
 
 
+<div class="ostali-kalkulatori">
+
+    <h2>Ostali kalkulatori</h2>
+
+    <a href="index.html">
+        🧮 Svi kalkulatori
+    </a>
+
+    <a href="gorivo.html">
+        🚗 Kalkulator potrošnje goriva
+    </a>
+
+    <a href="placa.html">
+        💰 Kalkulator plaće
+    </a>
+
+    <a href="popust.html">
+        🏷️ Kalkulator popusta
+    </a>
+
+    <a href="pdv.html">
+        🧾 Kalkulator PDV-a
+    </a>
+
+    <a href="postotak.html">
+        📊 Kalkulator postotka
+    </a>
+
+    <a href="vise-popusta.html">
+        🏷️ Kalkulator više popusta
+    </a>
+
+</div>
+
+
 <footer>
     © 2026 Kalkulatori
 </footer>
 
 
 <script>
+
 function izracunajPDV() {
 
-    const cijena = parseFloat(document.getElementById("cijena").value);
-    const pdv = parseFloat(document.getElementById("pdv").value);
-    const nacin = document.getElementById("nacin").value;
+    const cijena =
+        parseFloat(document.getElementById("cijena").value);
 
-    if (!cijena || cijena <= 0 || pdv < 0 || pdv > 100) {
+    const pdv =
+        parseFloat(document.getElementById("pdv").value);
+
+    const nacin =
+        document.getElementById("nacin").value;
+
+
+    if (
+        !cijena ||
+        cijena <= 0 ||
+        pdv < 0 ||
+        pdv > 100
+    ) {
+
         alert("Molimo unesite ispravne podatke.");
+
         return;
     }
+
 
     let osnovica;
     let iznosPDV;
     let ukupno;
 
+
     if (nacin === "bez") {
 
         osnovica = cijena;
-        iznosPDV = osnovica * (pdv / 100);
-        ukupno = osnovica + iznosPDV;
+
+        iznosPDV =
+            osnovica * (pdv / 100);
+
+        ukupno =
+            osnovica + iznosPDV;
 
     } else {
 
         ukupno = cijena;
-        osnovica = ukupno / (1 + pdv / 100);
-        iznosPDV = ukupno - osnovica;
 
+        osnovica =
+            ukupno / (1 + pdv / 100);
+
+        iznosPDV =
+            ukupno - osnovica;
     }
 
-    const rezultat = document.getElementById("rezultat");
+
+    const rezultat =
+        document.getElementById("rezultat");
+
 
     rezultat.style.display = "block";
 
+
     rezultat.innerHTML = `
+
         <strong>Rezultat:</strong><br><br>
-        💶 Cijena bez PDV-a: <strong>${osnovica.toFixed(2)} €</strong><br>
-        🧾 PDV (${pdv.toFixed(2)}%): <strong>${iznosPDV.toFixed(2)} €</strong><br>
-        💰 Cijena s PDV-om: <strong>${ukupno.toFixed(2)} €</strong>
+
+        💶 Cijena bez PDV-a:
+        <strong>${osnovica.toFixed(2)} €</strong>
+        <br>
+
+        🧾 PDV (${pdv.toFixed(2)}%):
+        <strong>${iznosPDV.toFixed(2)} €</strong>
+        <br>
+
+        💰 Cijena s PDV-om:
+        <strong>${ukupno.toFixed(2)} €</strong>
+
     `;
 }
+
 </script>
 
 </body>
 </html>
+```
