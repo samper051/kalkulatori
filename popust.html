@@ -1,105 +1,211 @@
 <!DOCTYPE html>
+
 <html lang="hr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <meta name="description" content="Besplatni kalkulator popusta. Izračunajte cijenu nakon popusta, iznos uštede i konačnu cijenu proizvoda.">
 
-    <meta name="robots" content="index, follow">
-   
-    <title>Kalkulator popusta – Izračun cijene nakon popusta</title>
+```
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f4f7;
-            margin: 0;
-            padding: 40px 20px;
-        }
+<meta name="description" content="Besplatni kalkulator popusta. Izračunajte cijenu nakon popusta, iznos uštede i konačnu cijenu proizvoda.">
 
-        .container {
-            max-width: 500px;
-            margin: auto;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
+<meta name="robots" content="index, follow">
 
-        h1 {
-            text-align: center;
-        }
+<title>Kalkulator popusta – Izračun cijene nakon popusta</title>
 
-        p {
-            color: #555;
-            line-height: 1.5;
-        }
+<style>
 
-        label {
-            display: block;
-            margin-top: 20px;
-            font-weight: bold;
-        }
+    * {
+        box-sizing: border-box;
+    }
 
-        input {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 12px;
-            margin-top: 7px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 16px;
-        }
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f5f7fb;
+        color: #1f2937;
+    }
 
-        button {
-            width: 100%;
-            padding: 14px;
-            margin-top: 25px;
-            border: none;
-            border-radius: 8px;
-            background: #222;
-            color: white;
-            font-size: 17px;
-            cursor: pointer;
-        }
+    header {
+        background: #111827;
+        color: white;
+        padding: 22px 20px;
+    }
 
-        button:hover {
-            background: #444;
-        }
+    .header-inner {
+        max-width: 700px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        #rezultat {
-            margin-top: 25px;
-            padding: 18px;
-            background: #f0f7ff;
-            border-radius: 10px;
-            display: none;
-            line-height: 1.8;
-        }
+    .logo {
+        color: white;
+        text-decoration: none;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .back {
+        color: white;
+        text-decoration: none;
+    }
+
+    .container {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+
+    .calculator {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 0;
+    }
+
+    p {
+        color: #555;
+        line-height: 1.5;
+    }
+
+    label {
+        display: block;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin-top: 7px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+        padding: 14px;
+        margin-top: 25px;
+        border: none;
+        border-radius: 8px;
+        background: #222;
+        color: white;
+        font-size: 17px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #444;
+    }
+
+    #rezultat {
+        margin-top: 25px;
+        padding: 18px;
+        background: #f0f7ff;
+        border-radius: 10px;
+        display: none;
+        line-height: 1.8;
+    }
+
     .seo-text {
-    max-width: 500px;
-    margin: 35px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    line-height: 1.7;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-}
+        max-width: 500px;
+        margin: 35px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        line-height: 1.7;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    }
 
-.seo-text h2 {
-    margin-top: 0;
-    color: #222;
-}
+    .seo-text h2 {
+        margin-top: 0;
+        color: #222;
+    }
 
-.seo-text p {
-    color: #555;
-}
-    </style>
+    .seo-text p {
+        color: #555;
+    }
+
+    .ostali-kalkulatori {
+        max-width: 500px;
+        margin: 35px auto;
+        padding: 30px;
+        background: white;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    }
+
+    .ostali-kalkulatori h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .ostali-kalkulatori a {
+        display: block;
+        margin: 12px 0;
+        color: #111827;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .ostali-kalkulatori a:hover {
+        text-decoration: underline;
+    }
+
+    footer {
+        text-align: center;
+        color: #6b7280;
+        padding: 30px;
+    }
+
+    @media (max-width: 600px) {
+
+        .header-inner {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+    }
+
+</style>
+```
+
 </head>
 
 <body>
 
+<header>
+
+```
+<div class="header-inner">
+
+    <a class="logo" href="index.html">
+        🧮 Kalkulatori
+    </a>
+
+    <a class="back" href="index.html">
+        ← Početna
+    </a>
+
+</div>
+```
+
+</header>
+
 <div class="container">
+
+```
+<div class="calculator">
 
     <h1>🏷️ Kalkulator popusta</h1>
 
@@ -108,75 +214,162 @@
         i koliko ste novca uštedjeli.
     </p>
 
-    <label for="cijena">Početna cijena (€)</label>
-    <input type="number" id="cijena" placeholder="npr. 100">
+    <label for="cijena">
+        Početna cijena (€)
+    </label>
 
-    <label for="popust">Popust (%)</label>
-    <input type="number" id="popust" placeholder="npr. 20">
+    <input
+        type="number"
+        id="cijena"
+        placeholder="npr. 100"
+    >
 
-    <button onclick="izracunajPopust()">Izračunaj</button>
+    <label for="popust">
+        Popust (%)
+    </label>
+
+    <input
+        type="number"
+        id="popust"
+        placeholder="npr. 20"
+    >
+
+    <button onclick="izracunajPopust()">
+        Izračunaj
+    </button>
 
     <div id="rezultat"></div>
 
 </div>
-<div class="seo-text">
-
-    <h2>Kako izračunati popust?</h2>
-
-    <p>
-        Kalkulator popusta omogućuje brz izračun cijene proizvoda
-        nakon popusta. Unesite početnu cijenu i postotak popusta
-        kako biste saznali koliko ćete uštedjeti i koliko ćete platiti.
-    </p>
-
-    <h2>Kako se računa cijena nakon popusta?</h2>
-
-    <p>
-        Iznos popusta dobiva se tako da početnu cijenu pomnožite
-        s postotkom popusta. Nakon toga se iznos popusta oduzima
-        od početne cijene.
-    </p>
-
-    <p>
-        <strong>Primjer:</strong> Ako proizvod košta 100 € i ima
-        popust od 20%, uštedjet ćete 20 €, a konačna cijena bit će 80 €.
-    </p>
-
-    <h2>Koliko sam uštedio?</h2>
-
-    <p>
-        Kalkulator prikazuje i iznos uštede, pa možete odmah vidjeti
-        koliko novca ostaje u vašem džepu nakon primijenjenog popusta.
-    </p>
+```
 
 </div>
+
+<div class="seo-text">
+
+```
+<h2>Kako izračunati popust?</h2>
+
+<p>
+    Kalkulator popusta omogućuje brz izračun cijene proizvoda
+    nakon popusta. Unesite početnu cijenu i postotak popusta
+    kako biste saznali koliko ćete uštedjeti i koliko ćete platiti.
+</p>
+
+<h2>Kako se računa cijena nakon popusta?</h2>
+
+<p>
+    Iznos popusta dobiva se tako da početnu cijenu pomnožite
+    s postotkom popusta. Nakon toga se iznos popusta oduzima
+    od početne cijene.
+</p>
+
+<p>
+    <strong>Primjer:</strong> Ako proizvod košta 100 € i ima
+    popust od 20%, uštedjet ćete 20 €, a konačna cijena bit će 80 €.
+</p>
+
+<h2>Koliko sam uštedio?</h2>
+
+<p>
+    Kalkulator prikazuje i iznos uštede, pa možete odmah vidjeti
+    koliko novca ostaje u vašem džepu nakon primijenjenog popusta.
+</p>
+```
+
+</div>
+
+<div class="ostali-kalkulatori">
+
+```
+<h2>Ostali kalkulatori</h2>
+
+<a href="index.html">🏠 Svi kalkulatori</a>
+
+<a href="gorivo.html">🚗 Kalkulator goriva</a>
+
+<a href="placa.html">💰 Kalkulator plaće</a>
+
+<a href="pdv.html">🧾 Kalkulator PDV-a</a>
+
+<a href="postotak.html">📊 Kalkulator postotaka</a>
+
+<a href="vise-popusta.html">🛒 Kalkulator više popusta</a>
+```
+
+</div>
+
+<footer>
+
+```
+© 2026 Kalkulatori
+```
+
+</footer>
+
 <script>
+
 function izracunajPopust() {
 
-    const cijena = parseFloat(document.getElementById("cijena").value);
-    const popust = parseFloat(document.getElementById("popust").value);
+    const cijena =
+        parseFloat(document.getElementById("cijena").value);
 
-    if (!cijena || cijena <= 0 || popust < 0 || popust > 100) {
+    const popust =
+        parseFloat(document.getElementById("popust").value);
+
+
+    if (
+        !cijena ||
+        cijena <= 0 ||
+        popust < 0 ||
+        popust > 100
+    ) {
+
         alert("Molimo unesite ispravne podatke.");
+
         return;
     }
 
-    const usteda = cijena * (popust / 100);
-    const konacnaCijena = cijena - usteda;
 
-    const rezultat = document.getElementById("rezultat");
+    const usteda =
+        cijena * (popust / 100);
+
+    const konacnaCijena =
+        cijena - usteda;
+
+
+    const rezultat =
+        document.getElementById("rezultat");
+
 
     rezultat.style.display = "block";
 
+
     rezultat.innerHTML = `
+
         <strong>Rezultat:</strong><br><br>
-        💶 Početna cijena: <strong>${cijena.toFixed(2)} €</strong><br>
-        🏷️ Popust: <strong>${popust.toFixed(2)}%</strong><br>
-        💰 Ušteda: <strong>${usteda.toFixed(2)} €</strong><br>
-        ✅ Konačna cijena: <strong>${konacnaCijena.toFixed(2)} €</strong>
+
+        💶 Početna cijena:
+        <strong>${cijena.toFixed(2)} €</strong>
+        <br>
+
+        🏷️ Popust:
+        <strong>${popust.toFixed(2)}%</strong>
+        <br>
+
+        💰 Ušteda:
+        <strong>${usteda.toFixed(2)} €</strong>
+        <br>
+
+        ✅ Konačna cijena:
+        <strong>${konacnaCijena.toFixed(2)} €</strong>
+
     `;
+
 }
+
 </script>
 
 </body>
+
 </html>
