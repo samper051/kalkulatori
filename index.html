@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="hr">
 
@@ -7,11 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="google-site-verification" content="QGydXj0OldD4-egdO3Fnm2JuYDHHIi4nIL0O9Qc_DvE">
-
-    <meta name="description" content="Besplatni online kalkulatori za gorivo, plaću, popuste, PDV, postotke i više uzastopnih popusta. Brzi i jednostavni izračuni bez registracije.">
+    <meta name="description" content="Besplatni online kalkulatori za gorivo, plaću, popuste, PDV, postotke i više popusta. Brzi i jednostavni kalkulatori za svakodnevne izračune.">
 
     <meta name="robots" content="index, follow">
+
+    <meta name="google-site-verification" content="QGydXj0OldD4-egdO3Fnm2JuYDHHIi4nIL0O9Qc_DvE">
 
     <title>Besplatni online kalkulatori – Gorivo, plaća, PDV, popust i postotak</title>
 
@@ -28,6 +27,8 @@
             color: #1f2937;
         }
 
+        /* HEADER */
+
         header {
             background: #111827;
             color: white;
@@ -43,6 +44,8 @@
         }
 
         .logo {
+            color: white;
+            text-decoration: none;
             font-size: 24px;
             font-weight: bold;
         }
@@ -50,13 +53,15 @@
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 20px;
+            margin-left: 22px;
             font-size: 15px;
         }
 
         nav a:hover {
             text-decoration: underline;
         }
+
+        /* HERO */
 
         .hero {
             background: white;
@@ -66,32 +71,36 @@
 
         .hero h1 {
             font-size: 42px;
-            margin: 0 0 15px;
+            margin: 0 0 18px;
         }
 
         .hero p {
-            font-size: 19px;
-            color: #6b7280;
             max-width: 700px;
             margin: auto;
-            line-height: 1.6;
+            font-size: 19px;
+            color: #6b7280;
+            line-height: 1.7;
         }
+
+        /* MAIN */
 
         .container {
             max-width: 1100px;
             margin: auto;
-            padding: 50px 20px;
+            padding: 55px 20px;
         }
 
         .section-title {
             text-align: center;
             font-size: 30px;
-            margin: 0 0 35px;
+            margin: 0 0 40px;
         }
+
+        /* CARDS */
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
         }
 
@@ -101,6 +110,8 @@
             border-radius: 16px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.07);
             transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
@@ -109,42 +120,45 @@
         }
 
         .icon {
-            font-size: 40px;
+            font-size: 42px;
             margin-bottom: 15px;
         }
 
         .card h3 {
-            margin-top: 0;
+            margin: 0 0 12px;
             font-size: 22px;
         }
 
         .card p {
             color: #6b7280;
             line-height: 1.6;
-            min-height: 75px;
+            margin: 0 0 10px;
         }
 
         .button {
             display: inline-block;
-            margin-top: 15px;
-            padding: 12px 20px;
+            margin-top: auto;
+            padding: 13px 20px;
             background: #111827;
             color: white;
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
+            text-align: center;
         }
 
         .button:hover {
             background: #374151;
         }
 
+        /* INFO */
+
         .info {
             margin-top: 60px;
             background: #111827;
             color: white;
             border-radius: 16px;
-            padding: 40px;
+            padding: 45px;
             text-align: center;
         }
 
@@ -154,22 +168,52 @@
         }
 
         .info p {
+            max-width: 750px;
+            margin: 15px auto;
             color: #d1d5db;
             line-height: 1.7;
-            max-width: 750px;
-            margin: auto;
         }
+
+        /* SEO */
+
+        .seo-text {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        .seo-text h2 {
+            font-size: 26px;
+            margin-top: 40px;
+            color: #111827;
+        }
+
+        .seo-text p {
+            color: #4b5563;
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
 
         footer {
             background: #0b1120;
             color: #9ca3af;
             text-align: center;
             padding: 30px 20px;
-            margin-top: 40px;
         }
 
         footer p {
-            margin: 5px;
+            margin: 6px;
+        }
+
+        /* MOBITEL */
+
+        @media (max-width: 900px) {
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
         }
 
         @media (max-width: 600px) {
@@ -191,32 +235,52 @@
                 font-size: 32px;
             }
 
-            .card p {
-                min-height: auto;
+            .hero p {
+                font-size: 17px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 40px 20px;
             }
 
             .info {
                 padding: 30px 20px;
             }
+
         }
 
     </style>
 
 </head>
 
+
 <body>
+
+
+<!-- HEADER -->
 
 <header>
 
     <div class="header-inner">
 
-        <div class="logo">
+        <a class="logo" href="index.html">
             🧮 Kalkulatori
-        </div>
+        </a>
 
         <nav>
-            <a href="#kalkulatori">Kalkulatori</a>
-            <a href="#o-nama">O stranici</a>
+
+            <a href="#kalkulatori">
+                Kalkulatori
+            </a>
+
+            <a href="#o-nama">
+                O stranici
+            </a>
+
         </nav>
 
     </div>
@@ -224,17 +288,24 @@
 </header>
 
 
+<!-- HERO -->
+
 <section class="hero">
 
-    <h1>Besplatni kalkulatori za svaki dan</h1>
+    <h1>
+        Besplatni kalkulatori za svaki dan
+    </h1>
 
     <p>
         Brzi, jednostavni i potpuno besplatni kalkulatori
-        za gorivo, plaću, popuste, PDV, postotke i svakodnevne izračune.
+        za izračun goriva, plaće, popusta, PDV-a, postotaka
+        i drugih svakodnevnih izračuna.
     </p>
 
 </section>
 
+
+<!-- KALKULATORI -->
 
 <main class="container" id="kalkulatori">
 
@@ -250,12 +321,16 @@
 
         <div class="card">
 
-            <div class="icon">🚗</div>
+            <div class="icon">
+                🚗
+            </div>
 
-            <h3>Kalkulator goriva</h3>
+            <h3>
+                Kalkulator goriva
+            </h3>
 
             <p>
-                Izračunajte potrošnju automobila,
+                Izračunajte potrošnju automobila u L/100 km,
                 trošak goriva i cijenu po kilometru.
             </p>
 
@@ -270,12 +345,16 @@
 
         <div class="card">
 
-            <div class="icon">💰</div>
+            <div class="icon">
+                💰
+            </div>
 
-            <h3>Kalkulator plaće</h3>
+            <h3>
+                Kalkulator plaće
+            </h3>
 
             <p>
-                Napravite brzu procjenu neto iznosa
+                Izračunajte procijenjeni neto iznos
                 na temelju bruto plaće i odbitaka.
             </p>
 
@@ -290,13 +369,17 @@
 
         <div class="card">
 
-            <div class="icon">🏷️</div>
+            <div class="icon">
+                🏷️
+            </div>
 
-            <h3>Kalkulator popusta</h3>
+            <h3>
+                Kalkulator popusta
+            </h3>
 
             <p>
-                Izračunajte koliko ćete uštedjeti
-                i koja je konačna cijena proizvoda.
+                Izračunajte iznos uštede i konačnu
+                cijenu proizvoda nakon popusta.
             </p>
 
             <a class="button" href="popust.html">
@@ -310,9 +393,13 @@
 
         <div class="card">
 
-            <div class="icon">🧾</div>
+            <div class="icon">
+                🧾
+            </div>
 
-            <h3>Kalkulator PDV-a</h3>
+            <h3>
+                Kalkulator PDV-a
+            </h3>
 
             <p>
                 Izračunajte iznos PDV-a, cijenu bez PDV-a
@@ -330,9 +417,13 @@
 
         <div class="card">
 
-            <div class="icon">📊</div>
+            <div class="icon">
+                📊
+            </div>
 
-            <h3>Kalkulator postotaka</h3>
+            <h3>
+                Kalkulator postotaka
+            </h3>
 
             <p>
                 Izračunajte postotak od broja ili saznajte
@@ -350,9 +441,13 @@
 
         <div class="card">
 
-            <div class="icon">🛒</div>
+            <div class="icon">
+                🛒
+            </div>
 
-            <h3>Kalkulator više popusta</h3>
+            <h3>
+                Kalkulator više popusta
+            </h3>
 
             <p>
                 Izračunajte konačnu cijenu nakon dva ili tri
@@ -369,20 +464,23 @@
     </div>
 
 
+    <!-- O STRANICI -->
+
     <div class="info" id="o-nama">
 
-        <h2>Besplatni online kalkulatori</h2>
+        <h2>
+            Besplatni online kalkulatori
+        </h2>
 
         <p>
             Na jednom mjestu možete koristiti besplatne kalkulatore
-            za različite svakodnevne izračune. Izračunajte trošak
-            goriva, procijenite plaću, izračunajte popust, PDV,
-            postotak ili više uzastopnih popusta.
+            za različite svakodnevne izračune. Nije potrebna
+            registracija niti instalacija aplikacije.
         </p>
 
         <p>
-            Odaberite kalkulator koji vam treba i odmah izračunajte
-            rezultat bez registracije i bez nepotrebnih komplikacija.
+            Odaberite kalkulator koji vam treba, unesite podatke
+            i odmah dobijte rezultat.
         </p>
 
     </div>
@@ -390,11 +488,99 @@
 </main>
 
 
+<!-- SEO TEKST -->
+
+<section class="seo-text">
+
+    <h2>
+        Kalkulatori za svakodnevne izračune
+    </h2>
+
+    <p>
+        Naša stranica nudi jednostavne online kalkulatore koji
+        omogućuju brzo računanje bez potrebe za ručnim izračunima.
+        Svi kalkulatori dostupni su besplatno i mogu se koristiti
+        na računalu, tabletu i mobilnom uređaju.
+    </p>
+
+
+    <h2>
+        Kalkulator goriva
+    </h2>
+
+    <p>
+        Kalkulator goriva omogućuje izračun prosječne potrošnje
+        automobila u litrama na 100 kilometara. Možete izračunati
+        i ukupni trošak goriva te cijenu putovanja po kilometru.
+    </p>
+
+
+    <h2>
+        Kalkulator plaće
+    </h2>
+
+    <p>
+        Kalkulator plaće omogućuje brzu procjenu neto plaće
+        na temelju bruto iznosa i procijenjenih odbitaka.
+        Rezultat je informativnog karaktera.
+    </p>
+
+
+    <h2>
+        Kalkulator popusta
+    </h2>
+
+    <p>
+        Kalkulator popusta izračunava iznos uštede i konačnu
+        cijenu proizvoda nakon primijenjenog postotka popusta.
+    </p>
+
+
+    <h2>
+        Kalkulator PDV-a
+    </h2>
+
+    <p>
+        Kalkulator PDV-a omogućuje izračun PDV-a, cijene bez PDV-a
+        i cijene s PDV-om. Možete odabrati stopu PDV-a koja vam
+        je potrebna.
+    </p>
+
+
+    <h2>
+        Kalkulator postotaka
+    </h2>
+
+    <p>
+        Kalkulator postotaka omogućuje izračun određenog postotka
+        od broja te izračun koliko jedan broj iznosi posto od drugog.
+    </p>
+
+
+    <h2>
+        Kalkulator više popusta
+    </h2>
+
+    <p>
+        Kalkulator više popusta služi za izračun konačne cijene
+        nakon dva ili tri uzastopna popusta. Također prikazuje
+        ukupnu uštedu i stvarni efektivni postotak popusta.
+    </p>
+
+</section>
+
+
+<!-- FOOTER -->
+
 <footer>
 
-    <p>© 2026 Kalkulatori</p>
+    <p>
+        © 2026 Kalkulatori
+    </p>
 
-    <p>Besplatni online kalkulatori</p>
+    <p>
+        Besplatni online kalkulatori
+    </p>
 
 </footer>
 
@@ -402,4 +588,3 @@
 </body>
 
 </html>
-```
