@@ -1,13 +1,15 @@
+```html
 <!DOCTYPE html>
 <html lang="hr">
-<head>
 
-    <meta name="google-site-verification" content="QGydXj0OldD4-egdO3Fnm2JuYDHHIi4nIL0O9Qc_DvE" />
+<head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Besplatni online kalkulatori za gorivo, plaću, popuste, PDV, postotke i svakodnevne izračune. Brzi i jednostavni kalkulatori bez registracije.">
+    <meta name="google-site-verification" content="QGydXj0OldD4-egdO3Fnm2JuYDHHIi4nIL0O9Qc_DvE">
+
+    <meta name="description" content="Besplatni online kalkulatori za gorivo, plaću, popuste, PDV, postotke i više uzastopnih popusta. Brzi i jednostavni izračuni bez registracije.">
 
     <meta name="robots" content="index, follow">
 
@@ -64,7 +66,7 @@
 
         .hero h1 {
             font-size: 42px;
-            margin-bottom: 15px;
+            margin: 0 0 15px;
         }
 
         .hero p {
@@ -84,12 +86,12 @@
         .section-title {
             text-align: center;
             font-size: 30px;
-            margin-bottom: 35px;
+            margin: 0 0 35px;
         }
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
 
@@ -119,6 +121,7 @@
         .card p {
             color: #6b7280;
             line-height: 1.6;
+            min-height: 75px;
         }
 
         .button {
@@ -150,15 +153,10 @@
             font-size: 28px;
         }
 
-        .info h3 {
-            margin-top: 30px;
-            font-size: 21px;
-        }
-
         .info p {
             color: #d1d5db;
             line-height: 1.7;
-            max-width: 700px;
+            max-width: 750px;
             margin: auto;
         }
 
@@ -185,20 +183,16 @@
                 margin: 0 8px;
             }
 
-            .hero h1 {
-                font-size: 32px;
-            }
-
             .hero {
                 padding: 50px 20px;
             }
 
-            .container {
-                padding: 35px 15px;
+            .hero h1 {
+                font-size: 32px;
             }
 
-            .card {
-                padding: 25px;
+            .card p {
+                min-height: auto;
             }
 
             .info {
@@ -212,7 +206,6 @@
 
 <body>
 
-
 <header>
 
     <div class="header-inner">
@@ -222,15 +215,8 @@
         </div>
 
         <nav>
-
-            <a href="#kalkulatori">
-                Kalkulatori
-            </a>
-
-            <a href="#o-nama">
-                O stranici
-            </a>
-
+            <a href="#kalkulatori">Kalkulatori</a>
+            <a href="#o-nama">O stranici</a>
         </nav>
 
     </div>
@@ -240,14 +226,11 @@
 
 <section class="hero">
 
-    <h1>
-        Besplatni kalkulatori za svaki dan
-    </h1>
+    <h1>Besplatni kalkulatori za svaki dan</h1>
 
     <p>
         Brzi, jednostavni i potpuno besplatni kalkulatori
-        koji vam pomažu izračunati troškove, cijene,
-        plaću, PDV, postotke i još mnogo toga.
+        za gorivo, plaću, popuste, PDV, postotke i svakodnevne izračune.
     </p>
 
 </section>
@@ -267,13 +250,9 @@
 
         <div class="card">
 
-            <div class="icon">
-                🚗
-            </div>
+            <div class="icon">🚗</div>
 
-            <h3>
-                Kalkulator goriva
-            </h3>
+            <h3>Kalkulator goriva</h3>
 
             <p>
                 Izračunajte potrošnju automobila,
@@ -291,13 +270,9 @@
 
         <div class="card">
 
-            <div class="icon">
-                💰
-            </div>
+            <div class="icon">💰</div>
 
-            <h3>
-                Kalkulator plaće
-            </h3>
+            <h3>Kalkulator plaće</h3>
 
             <p>
                 Napravite brzu procjenu neto iznosa
@@ -315,13 +290,9 @@
 
         <div class="card">
 
-            <div class="icon">
-                🏷️
-            </div>
+            <div class="icon">🏷️</div>
 
-            <h3>
-                Kalkulator popusta
-            </h3>
+            <h3>Kalkulator popusta</h3>
 
             <p>
                 Izračunajte koliko ćete uštedjeti
@@ -339,13 +310,9 @@
 
         <div class="card">
 
-            <div class="icon">
-                🧾
-            </div>
+            <div class="icon">🧾</div>
 
-            <h3>
-                Kalkulator PDV-a
-            </h3>
+            <h3>Kalkulator PDV-a</h3>
 
             <p>
                 Izračunajte iznos PDV-a, cijenu bez PDV-a
@@ -363,13 +330,9 @@
 
         <div class="card">
 
-            <div class="icon">
-                📊
-            </div>
+            <div class="icon">📊</div>
 
-            <h3>
-                Kalkulator postotaka
-            </h3>
+            <h3>Kalkulator postotaka</h3>
 
             <p>
                 Izračunajte postotak od broja ili saznajte
@@ -387,17 +350,13 @@
 
         <div class="card">
 
-            <div class="icon">
-                🛒
-            </div>
+            <div class="icon">🛒</div>
 
-            <h3>
-                Kalkulator više popusta
-            </h3>
+            <h3>Kalkulator više popusta</h3>
 
             <p>
-                Izračunajte konačnu cijenu nakon dva
-                ili više uzastopnih popusta.
+                Izračunajte konačnu cijenu nakon dva ili tri
+                uzastopna popusta i ukupnu uštedu.
             </p>
 
             <a class="button" href="vise-popusta.html">
@@ -412,94 +371,35 @@
 
     <div class="info" id="o-nama">
 
-        <h2>
-            Besplatni online kalkulatori
-        </h2>
+        <h2>Besplatni online kalkulatori</h2>
 
         <p>
             Na jednom mjestu možete koristiti besplatne kalkulatore
-            za svakodnevne izračune. Odaberite kalkulator koji vam treba
-            i odmah izračunajte rezultat bez registracije.
+            za različite svakodnevne izračune. Izračunajte trošak
+            goriva, procijenite plaću, izračunajte popust, PDV,
+            postotak ili više uzastopnih popusta.
         </p>
 
-
-        <h3>
-            Kalkulator goriva
-        </h3>
-
         <p>
-            Izračunajte potrošnju automobila u L/100 km,
-            trošak goriva i cijenu putovanja.
-        </p>
-
-
-        <h3>
-            Kalkulator plaće
-        </h3>
-
-        <p>
-            Napravite brzu procjenu bruto i neto plaće
-            na temelju unesenih podataka.
-        </p>
-
-
-        <h3>
-            Kalkulator popusta
-        </h3>
-
-        <p>
-            Izračunajte iznos popusta, uštedu i konačnu
-            cijenu proizvoda.
-        </p>
-
-
-        <h3>
-            Kalkulator PDV-a
-        </h3>
-
-        <p>
-            Izračunajte PDV te cijenu proizvoda ili usluge
-            bez i s PDV-om.
-        </p>
-
-
-        <h3>
-            Kalkulator postotaka
-        </h3>
-
-        <p>
-            Brzo izračunajte postotak od određenog broja
-            ili usporedite dvije vrijednosti.
-        </p>
-
-
-        <h3>
-            Kalkulator više popusta
-        </h3>
-
-        <p>
-            Izračunajte konačnu cijenu nakon više uzastopnih
-            popusta i saznajte ukupnu uštedu.
+            Odaberite kalkulator koji vam treba i odmah izračunajte
+            rezultat bez registracije i bez nepotrebnih komplikacija.
         </p>
 
     </div>
-
 
 </main>
 
 
 <footer>
 
-    <p>
-        © 2026 Kalkulatori
-    </p>
+    <p>© 2026 Kalkulatori</p>
 
-    <p>
-        Besplatni online kalkulatori
-    </p>
+    <p>Besplatni online kalkulatori</p>
 
 </footer>
 
 
 </body>
+
 </html>
+```
