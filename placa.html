@@ -1,111 +1,217 @@
 <!DOCTYPE html>
+
 <html lang="hr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Besplatni kalkulator plaće. Izračunajte bruto i neto plaću te brzo procijenite koliko novca dobivate na račun.">
+```
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="robots" content="index, follow">
-    
-    <title>Kalkulator plaće – Bruto i neto plaća</title>
+<meta name="description" content="Besplatni kalkulator plaće. Izračunajte bruto i neto plaću te brzo procijenite koliko novca dobivate na račun.">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f4f7;
-            margin: 0;
-            padding: 40px 20px;
+<meta name="robots" content="index, follow">
+
+<title>Kalkulator plaće – Bruto i neto plaća</title>
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f5f7fb;
+        color: #1f2937;
+    }
+
+    header {
+        background: #111827;
+        color: white;
+        padding: 22px 20px;
+    }
+
+    .header-inner {
+        max-width: 700px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        color: white;
+        text-decoration: none;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .back {
+        color: white;
+        text-decoration: none;
+    }
+
+    .container {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+
+    .calculator {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 0;
+    }
+
+    p {
+        color: #555;
+        line-height: 1.5;
+    }
+
+    label {
+        display: block;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin-top: 7px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+        padding: 14px;
+        margin-top: 25px;
+        border: none;
+        border-radius: 8px;
+        background: #222;
+        color: white;
+        font-size: 17px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #444;
+    }
+
+    #rezultat {
+        margin-top: 25px;
+        padding: 18px;
+        background: #f0f7ff;
+        border-radius: 10px;
+        display: none;
+        line-height: 1.8;
+    }
+
+    .napomena {
+        font-size: 13px;
+        color: #777;
+        margin-top: 20px;
+    }
+
+    .seo-text {
+        max-width: 500px;
+        margin: 35px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        line-height: 1.7;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    }
+
+    .seo-text h2 {
+        margin-top: 0;
+        color: #222;
+    }
+
+    .seo-text p {
+        color: #555;
+    }
+
+    .ostali-kalkulatori {
+        max-width: 500px;
+        margin: 35px auto;
+        padding: 30px;
+        background: white;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    }
+
+    .ostali-kalkulatori h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .ostali-kalkulatori a {
+        display: block;
+        margin: 12px 0;
+        color: #111827;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .ostali-kalkulatori a:hover {
+        text-decoration: underline;
+    }
+
+    footer {
+        text-align: center;
+        color: #6b7280;
+        padding: 30px;
+    }
+
+    @media (max-width: 600px) {
+
+        .header-inner {
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .container {
-            max-width: 500px;
-            margin: auto;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
+    }
 
-        h1 {
-            text-align: center;
-        }
+</style>
+```
 
-        p {
-            color: #555;
-            line-height: 1.5;
-        }
-
-        label {
-            display: block;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-
-        input {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 12px;
-            margin-top: 7px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 16px;
-        }
-
-        button {
-            width: 100%;
-            padding: 14px;
-            margin-top: 25px;
-            border: none;
-            border-radius: 8px;
-            background: #222;
-            color: white;
-            font-size: 17px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #444;
-        }
-
-        #rezultat {
-            margin-top: 25px;
-            padding: 18px;
-            background: #f0f7ff;
-            border-radius: 10px;
-            display: none;
-            line-height: 1.8;
-        }
-
-        .napomena {
-            font-size: 13px;
-            color: #777;
-            margin-top: 20px;
-        }
-        .seo-text {
-    max-width: 500px;
-    margin: 35px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    line-height: 1.7;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-}
-
-.seo-text h2 {
-    margin-top: 0;
-    color: #222;
-}
-
-.seo-text p {
-    color: #555;
-}
-    </style>
 </head>
 
 <body>
 
+<header>
+
+```
+<div class="header-inner">
+
+    <a class="logo" href="index.html">
+        🧮 Kalkulatori
+    </a>
+
+    <a class="back" href="index.html">
+        ← Početna
+    </a>
+
+</div>
+```
+
+</header>
+
 <div class="container">
+
+```
+<div class="calculator">
 
     <h1>💰 Kalkulator plaće</h1>
 
@@ -114,13 +220,30 @@
         ostati nakon osnovnih odbitaka.
     </p>
 
-    <label for="bruto">Bruto plaća (€)</label>
-    <input type="number" id="bruto" placeholder="npr. 2000">
+    <label for="bruto">
+        Bruto plaća (€)
+    </label>
 
-    <label for="postotak">Procijenjeni odbici (%)</label>
-    <input type="number" id="postotak" value="25" step="0.1">
+    <input
+        type="number"
+        id="bruto"
+        placeholder="npr. 2000"
+    >
 
-    <button onclick="izracunajPlacu()">Izračunaj</button>
+    <label for="postotak">
+        Procijenjeni odbici (%)
+    </label>
+
+    <input
+        type="number"
+        id="postotak"
+        value="25"
+        step="0.1"
+    >
+
+    <button onclick="izracunajPlacu()">
+        Izračunaj
+    </button>
 
     <div id="rezultat"></div>
 
@@ -130,59 +253,127 @@
     </div>
 
 </div>
-<div class="seo-text">
-
-    <h2>Kako izračunati plaću?</h2>
-
-    <p>
-        Kalkulator plaće omogućuje brzi izračun i procjenu
-        iznosa plaće. Unesite podatke u kalkulator kako biste
-        dobili rezultat bez ručnog računanja.
-    </p>
-
-    <h2>Što je bruto, a što neto plaća?</h2>
-
-    <p>
-        Bruto plaća je iznos koji uključuje plaću prije odbitaka,
-        dok je neto plaća iznos koji zaposlenik prima na svoj račun
-        nakon primjene poreza i drugih odbitaka.
-    </p>
-
-    <h2>Kako koristiti kalkulator plaće?</h2>
-
-    <p>
-        Unesite potrebne podatke u kalkulator i kliknite
-        "Izračunaj". Kalkulator će prikazati procijenjeni rezultat
-        na temelju unesenih vrijednosti.
-    </p>
+```
 
 </div>
+
+<div class="seo-text">
+
+```
+<h2>Kako izračunati plaću?</h2>
+
+<p>
+    Kalkulator plaće omogućuje brzi izračun i procjenu
+    iznosa plaće. Unesite podatke u kalkulator kako biste
+    dobili rezultat bez ručnog računanja.
+</p>
+
+<h2>Što je bruto, a što neto plaća?</h2>
+
+<p>
+    Bruto plaća je iznos koji uključuje plaću prije odbitaka,
+    dok je neto plaća iznos koji zaposlenik prima na svoj račun
+    nakon primjene poreza i drugih odbitaka.
+</p>
+
+<h2>Kako koristiti kalkulator plaće?</h2>
+
+<p>
+    Unesite potrebne podatke u kalkulator i kliknite
+    "Izračunaj". Kalkulator će prikazati procijenjeni rezultat
+    na temelju unesenih vrijednosti.
+</p>
+```
+
+</div>
+
+<div class="ostali-kalkulatori">
+
+```
+<h2>Ostali kalkulatori</h2>
+
+<a href="index.html">🏠 Svi kalkulatori</a>
+
+<a href="gorivo.html">🚗 Kalkulator goriva</a>
+
+<a href="popust.html">🏷️ Kalkulator popusta</a>
+
+<a href="pdv.html">🧾 Kalkulator PDV-a</a>
+
+<a href="postotak.html">📊 Kalkulator postotaka</a>
+
+<a href="vise-popusta.html">🛒 Kalkulator više popusta</a>
+```
+
+</div>
+
+<footer>
+
+```
+© 2026 Kalkulatori
+```
+
+</footer>
+
 <script>
+
 function izracunajPlacu() {
 
-    const bruto = parseFloat(document.getElementById("bruto").value);
-    const postotak = parseFloat(document.getElementById("postotak").value);
+    const bruto =
+        parseFloat(document.getElementById("bruto").value);
 
-    if (!bruto || bruto <= 0 || postotak < 0 || postotak >= 100) {
+    const postotak =
+        parseFloat(document.getElementById("postotak").value);
+
+
+    if (
+        !bruto ||
+        bruto <= 0 ||
+        postotak < 0 ||
+        postotak >= 100
+    ) {
+
         alert("Molimo unesite ispravne podatke.");
+
         return;
     }
 
-    const odbici = bruto * (postotak / 100);
-    const neto = bruto - odbici;
 
-    const rezultat = document.getElementById("rezultat");
+    const odbici =
+        bruto * (postotak / 100);
+
+    const neto =
+        bruto - odbici;
+
+
+    const rezultat =
+        document.getElementById("rezultat");
+
 
     rezultat.style.display = "block";
 
+
     rezultat.innerHTML = `
+
         <strong>Procjena:</strong><br><br>
-        💼 Bruto plaća: <strong>${bruto.toFixed(2)} €</strong><br>
-        📉 Odbici: <strong>${odbici.toFixed(2)} €</strong><br>
-        💶 Procijenjeni neto: <strong>${neto.toFixed(2)} €</strong>
+
+        💼 Bruto plaća:
+        <strong>${bruto.toFixed(2)} €</strong>
+        <br>
+
+        📉 Odbici:
+        <strong>${odbici.toFixed(2)} €</strong>
+        <br>
+
+        💶 Procijenjeni neto:
+        <strong>${neto.toFixed(2)} €</strong>
+
     `;
+
 }
+
 </script>
 
 </body>
+
 </html>
